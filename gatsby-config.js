@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "Chris Marlow",
-    subtitle: `Front-end developer`,
-    description: "I simplify things.",
-    author: `@perrupa`,
+    title: "Kristin LeGard",
+    subtitle: "Vegan Personal Trainer and Fitness Coach",
+    description: "",
+    author: `@KristinLeGard`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
