@@ -9,6 +9,16 @@ const Content = styled.div`
   padding: 1.45rem 1.0875rem;
 `
 
+const Ingedients = styled.ul`
+  border-left: 5px solid #eee;
+  padding-left: 2em;
+`
+
+const Ingedient = styled.li`
+  margin-top: 10px;
+  color: #606060;
+`
+
 const HeaderDate = styled.h3`
   margin-top: 10px;
   color: #606060;
@@ -47,6 +57,11 @@ export default ({ data }) => {
         <HeaderDate>
           {post.frontmatter.date} - {post.fields.readingTime.text}
         </HeaderDate>
+        <Ingedients>
+          {ingredients.map(ingredient => (
+            <Ingedient>{ingredient}</Ingedient>
+          ))}
+        </Ingedients>
         <MarkdownContent dangerouslySetInnerHTML={{ __html: post.html }} />
       </Content>
     </Layout>
@@ -62,6 +77,7 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM, YYYY")
         path
         title
+        ingredients
       }
       fields {
         readingTime {
