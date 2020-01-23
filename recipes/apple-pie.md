@@ -1,11 +1,13 @@
 ---
 title: Apple Pie
+slug: apple-pie
 date: "2019-03-17"
 ingredients:
   - Apples
   - Pie
+  - Ice cream
 draft: false
-path: /some/path
+path: /recipies/apple-pie
 ---
 
 # Apple Pie
