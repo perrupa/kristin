@@ -26,7 +26,7 @@ const NameHeader = styled.h1`
   margin-bottom: 0;
 `
 
-const LandingBio = () => (
+export const LandingBio = () => (
   <StaticQuery
     query={graphql`
       query LandingSiteTitleQuery {
@@ -58,5 +58,3 @@ NameHeader.defaultProps = {
   siteTitle: ``,
   subtitle: ``,
 }
-
-export default LandingBio

@@ -63,8 +63,6 @@ exports.createPages = ({ graphql, actions }) => {
       ({ node }) => !node.frontmatter.draft && !node.frontmatter.ingredients
     )
 
-    console.error(blogPosts)
-
     recipes.forEach(({ node }) => {
       createPage({
         path: `/recipes/${node.frontmatter.title}`,

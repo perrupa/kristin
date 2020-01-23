@@ -46,7 +46,7 @@ const SiteHeader = styled.header`
   justify-content: center;
 `
 
-const Header = ({ siteTitle }) => (
+export const Header = ({ siteTitle }) => (
   <SiteHeader>
     <Content>
       <p>
@@ -65,5 +65,3 @@ Header.propTypes = {
 Header.defaultProps = {
   siteTitle: ``,
 }
-
-export default Header
