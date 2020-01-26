@@ -16,19 +16,22 @@ const HeaderDate = styled.h3`
 
 export default ({ data }) => {
   const post = data.markdownRemark
+  const {
+    frontmatter: { title = "", description, date },
+    excerpt,
+    html,
+    fields,
+  } = post
 
-  console.log(data)
+  console.table(data)
 
   return (
     <Layout>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
-      <Content>
-        <h1>{post.frontmatter.title}</h1>
+      <SEO title={title} description={description || post.excerpt} />
+      <Content id={title}>
+        <h1>{title}</h1>
         <HeaderDate>
-          {post.frontmatter.date} - {post.fields.readingTime.text}
+          {date} - {fields.readingTime.text}
         </HeaderDate>
         <MarkdownContent dangerouslySetInnerHTML={{ __html: post.html }} />
       </Content>
@@ -45,11 +48,13 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM, YYYY")
         path
         title
+        slug
       }
       fields {
         readingTime {
           text
         }
+        slug
       }
     }
   }

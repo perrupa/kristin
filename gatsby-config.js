@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: ["gatsby-remark-reading-time"],
+        plugins: ["gatsby-remark-images", "gatsby-remark-reading-time"],
         filter: node => node.sourceInstanceName === "blog-post",
         type: "BlogPost",
       },
@@ -42,6 +42,7 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
+        plugins: ["gatsby-remark-images", "gatsby-remark-reading-time"],
         filter: node => node.sourceInstanceName === "recipe",
         type: "Recipe",
       },
