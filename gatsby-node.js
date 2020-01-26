@@ -44,7 +44,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
 
     const blogPosts = result.data.allMarkdownRemark.edges.filter(
       ({ node }) =>
-        !node.frontmatter.draft && node.frontmatter.ingredients === undefined
+        !node.frontmatter.draft && node.frontmatter.ingredients === null
     )
 
     recipes.forEach(({ node }) => {
@@ -62,7 +62,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
       createPage({
         path: node.frontmatter.path || `/posts/${node.frontmatter.title}`,
         component: blogPostTemplate,
-        slug: node.fields.slug,
+        slug: node.frontmatter.slug,
         context: {},
       })
     })
