@@ -22,6 +22,7 @@ export const query = graphql`
             title
             date(formatString: "DD MMMM, YYYY")
             path
+            slug
           }
           fields {
             slug
@@ -48,7 +49,7 @@ export const Recipe = ({ data }) => {
         {recipes.map(({ node }) => (
           <div key={node.id}>
             <Link
-              to={node.frontmatter.path}
+              to={`/recipes/${node.frontmatter.slug}`}
               css={css`
                 text-decoration: none;
                 color: inherit;

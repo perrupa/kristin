@@ -10,14 +10,14 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "blog-posts",
+        name: "blog-post",
         path: `${__dirname}/posts`,
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "recipes",
+        name: "recipe",
         path: `${__dirname}/recipes`,
       },
     },
@@ -35,6 +35,15 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: ["gatsby-remark-reading-time"],
+        filter: node => node.sourceInstanceName === "blog-post",
+        type: "BlogPost",
+      },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        filter: node => node.sourceInstanceName === "recipe",
+        type: "Recipe",
       },
     },
     {

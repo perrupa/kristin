@@ -13,48 +13,62 @@ const Ingedients = styled.ul`
   padding-left: 2em;
 `
 
-const Ingedient = HeaderDate.withComponent(li)
+const Ingedient = HeaderDate.withComponent("li")
 
-export default ({ data }) => {
-  const post = data.markdownRemark
+export default props => {
+  const { data = {} } = props
+  const post = data.markdownRemark || { frontmatter: {} }
+  const {
+    frontmatter: { ingredients = [], title = "", description, date },
+    excerpt,
+    html,
+  } = post
+
+  console.log("props", props)
+
+  console.log(data)
+
   return (
     <Layout>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <SEO title={title} description={description || excerpt} />
       <Content>
-        <h1>{post.frontmatter.title}</h1>
+        <h1>{title}</h1>
+
         <HeaderDate>
-          {post.frontmatter.date} - {post.fields.readingTime.text}
+          {date} - {getReadingTime(post)}
         </HeaderDate>
+
         <Ingedients>
           {ingredients.map(ingredient => (
             <Ingedient>{ingredient}</Ingedient>
           ))}
         </Ingedients>
-        <MarkdownContent dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <MarkdownContent dangerouslySetInnerHTML={{ __html: html }} />
       </Content>
     </Layout>
   )
 }
 
-// export const pageQuery = graphql`
-//   query($path: String!) {
-//     markdownRemark(frontmatter: { path: { eq: $path } }) {
-//       html
-//       excerpt(pruneLength: 160)
-//       frontmatter {
-//         date(formatString: "DD MMMM, YYYY")
-//         path
-//         title
-//         ingredients
-//       }
-//       fields {
-//         readingTime {
-//           text
-//         }
-//       }
-//     }
-//   }
-// `
+const getReadingTime = ({ fields } = {}) =>
+  fields && fields.readingTime && fields.readingTime.text
+
+export const pageQuery = graphql`
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      frontmatter {
+        date(formatString: "DD MMMM, YYYY")
+        path
+        title
+        ingredients
+        slug
+      }
+      fields {
+        readingTime {
+          text
+        }
+      }
+    }
+  }
+`

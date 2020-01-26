@@ -1,5 +1,6 @@
 ---
 title: Apple Pie
+path: /recipes/apple-pie
 slug: apple-pie
 date: "2019-03-17"
 ingredients:
@@ -7,7 +8,6 @@ ingredients:
   - Pie
   - Ice cream
 draft: false
-path: /recipies/apple-pie
 ---
 
 # Apple Pie
