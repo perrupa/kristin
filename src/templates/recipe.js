@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-// import { graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { Layout, Content, SEO, MarkdownContent } from "../components"
 
 const HeaderDate = styled.h3`
