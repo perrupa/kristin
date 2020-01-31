@@ -30,41 +30,33 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
+const hasIngredients = ({ node }) => node.frontmatter.ingredients
+const isBlogPost = ({ node }) => !node.frontmatter.draft && node.frontmatter.ingredients === null
+
+
 exports.createPages = ({ graphql, actions: { createPage } }) => {
-  const blogPostTemplate = path.resolve("src/templates/blog-post.js")
-  const recipeTemplate = path.resolve("src/templates/recipe.js")
+  const BlogPost = path.resolve("src/templates/blog-post.js")
+  const Recipe = path.resolve("src/templates/recipe.js")
 
-  return graphql(markdownPosts).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
+  const createPageForPathWithTemplate = (path, template) => ({node}) => {
+    createPage({
+      path: node.frontmatter.path || `/${path}/${node.frontmatter.title}`,
+      component: template,
+      slug: node.frontmatter.slug,
+      context: {},
+    })
+  };
+
+  return graphql(markdownPosts).then(({errors, data}) => {
+    if (errors) {
+      return Promise.reject(errors)
     }
-    const recipes = result.data.allMarkdownRemark.edges.filter(
-      ({ node }) => node.frontmatter.ingredients
-    )
 
-    const blogPosts = result.data.allMarkdownRemark.edges.filter(
-      ({ node }) =>
-        !node.frontmatter.draft && node.frontmatter.ingredients === null
-    )
+    const posts     = data.allMarkdownRemark.edges
+    const recipes   = posts.filter(hasIngredients)
+    const blogPosts = posts.filter(isBlogPost)
 
-    recipes.forEach(({ node }) => {
-      console.info("recipe", node)
-
-      createPage({
-        path: `/recipes/${node.frontmatter.slug}`,
-        component: recipeTemplate,
-        slug: node.frontmatter.slug,
-        context: {},
-      })
-    })
-
-    blogPosts.forEach(({ node }) => {
-      createPage({
-        path: node.frontmatter.path || `/posts/${node.frontmatter.title}`,
-        component: blogPostTemplate,
-        slug: node.frontmatter.slug,
-        context: {},
-      })
-    })
+    recipes.forEach(createPageForPathWithTemplate('recipes', Recipe))
+    blogPosts.forEach(createPageForPathWithTemplate('posts', BlogPost))
   })
 }
