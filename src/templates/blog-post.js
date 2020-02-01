@@ -18,8 +18,6 @@ export default ({ data }) => {
   const post = data.markdownRemark
   const {
     frontmatter: { title = "", description, date },
-    excerpt,
-    html,
     fields,
   } = post
 
