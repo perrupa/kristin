@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Kristin LeGard",
-    subtitle: "Vegan Personal Trainer and Fitness Coach",
+    subtitle: "Plant-based Fitness and Nutrition Coach",
     description: "",
     author: "@KristinLeGard",
   },
