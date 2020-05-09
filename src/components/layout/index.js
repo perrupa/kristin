@@ -15,8 +15,6 @@ import "./layout.css"
 
 export const Content = styled.div`
   margin: 0 auto;
-  max-width: 860px;
-  padding: 0 1.0875rem 1rem;
   padding-top: 0;
 `
 
@@ -25,8 +23,11 @@ const GatsbyLink = styled.a`
 `
 
 const Footer = styled.footer`
+  background-color: #333;
+  color: #fff;
   display: flex;
   justify-content: center;
+  padding: 2em;
 `
 
 export const Layout = ({ children }) => (

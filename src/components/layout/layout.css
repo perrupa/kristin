@@ -196,6 +196,8 @@ textarea {
 html {
   font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   overflow-y: scroll;
 }
 * {
