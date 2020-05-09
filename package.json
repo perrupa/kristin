@@ -27,7 +27,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "typeface-nunito": "0.0.72"
+    "typeface-open-sans": "0.0.75",
+    "typeface-open-sans-condensed": "0.0.72"
   },
   "devDependencies": {
     "@types/node": "^13.5.0",

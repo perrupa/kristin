@@ -7,5 +7,6 @@
 // You can delete this file if you're not using it
 
 exports.onInitialClientRender = () => {
-  require("typeface-nunito")
+  require("typeface-open-sans")
+  require("typeface-open-sans-condensed")
 }
