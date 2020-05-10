@@ -64,7 +64,10 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/posts/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/posts/" }
+        frontmatter: { draft: { eq: false } }
+      }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
