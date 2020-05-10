@@ -39,10 +39,11 @@ export const query = graphql`
 
 export const Recipe = ({ data }) => {
   const recipes = data.allMarkdownRemark.edges || []
+  const title = "Recipes"
 
   return (
-    <Layout>
-      <SEO title="Recipes" />
+    <Layout title={title}>
+      <SEO title={title} />
       <main>
         <h1>Recipes</h1>
 

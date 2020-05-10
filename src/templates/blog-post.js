@@ -24,7 +24,7 @@ export default ({ data }) => {
   console.table(data)
 
   return (
-    <Layout>
+    <Layout title={title}>
       <SEO title={title} description={description || post.excerpt} />
       <Content id={title}>
         <h1>{title}</h1>

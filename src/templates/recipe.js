@@ -29,7 +29,7 @@ export default props => {
   console.log(data)
 
   return (
-    <Layout>
+    <Layout title={title}>
       <SEO title={title} description={description || excerpt} />
       <Content>
         <h1>{title}</h1>

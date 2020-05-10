@@ -30,25 +30,12 @@ const Footer = styled.footer`
   padding: 2em;
 `
 
-export const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <Content>
-          <main>{children}</main>
-          <Footer>© {new Date().getFullYear()}, Kristin LeGard</Footer>
-        </Content>
-      </>
-    )}
-  />
-)
+export const Layout = ({ title, children }) => {
+  return (
+    <Content>
+      <Header siteTitle={title} />
+      <main>{children}</main>
+      <Footer>© {new Date().getFullYear()}, Kristin LeGard</Footer>
+    </Content>
+  )
+}

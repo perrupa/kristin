@@ -28,6 +28,8 @@ const Description = styled.p`
   margin-bottom: 1rem;
 `
 
+const title = "Home"
+
 export const IndexPage = () => (
   <StaticQuery
     query={graphql`
@@ -41,8 +43,8 @@ export const IndexPage = () => (
       }
     `}
     render={data => (
-      <Layout>
-        <SEO title="Home" keywords={["gatsby", "application", "react"]} />
+      <Layout title={title}>
+        <SEO title={title} keywords={["gatsby", "application", "react"]} />
         <OuterContainer>
           <Content>
             <NameHeader>{data.site.siteMetadata.title}</NameHeader>
