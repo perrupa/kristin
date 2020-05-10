@@ -5,10 +5,10 @@ import styled from "@emotion/styled"
 
 const OuterContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex: 1;
   justify-content: center;
-  flex-direction: row;
-  min-height: 78vh;
+  flex-direction: column;
+  padding-left: 1em;
   background-color: #b2ffff;
   color: #333;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
@@ -46,10 +46,8 @@ export const IndexPage = () => (
       <Layout title={title}>
         <SEO title={title} keywords={["gatsby", "application", "react"]} />
         <OuterContainer>
-          <Content>
-            <NameHeader>{data.site.siteMetadata.title}</NameHeader>
-            <Description>{data.site.siteMetadata.subtitle}</Description>
-          </Content>
+          <NameHeader>{data.site.siteMetadata.title}</NameHeader>
+          <Description>{data.site.siteMetadata.subtitle}</Description>
         </OuterContainer>
       </Layout>
     )}

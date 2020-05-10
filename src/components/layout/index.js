@@ -13,13 +13,20 @@ import styled from "@emotion/styled"
 import { Header } from ".."
 import "./layout.css"
 
-export const Content = styled.div`
+export const PageWrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
-  padding-top: 0;
+  padding: 0;
 `
 
-const GatsbyLink = styled.a`
-  margin-left: 5px;
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 auto;
+  padding: 0;
 `
 
 const Footer = styled.footer`
@@ -32,10 +39,10 @@ const Footer = styled.footer`
 
 export const Layout = ({ title, children }) => {
   return (
-    <Content>
+    <PageWrapper>
       <Header siteTitle={title} />
-      <main>{children}</main>
+      <Content>{children}</Content>
       <Footer>© {new Date().getFullYear()}, Kristin LeGard</Footer>
-    </Content>
+    </PageWrapper>
   )
 }
