@@ -50,10 +50,10 @@ const HomeLink = styled(NavLink)`
 
 export const Header = () => (
   <SiteHeader>
-    <Content>
-      <HomeLink to="/">Home</HomeLink>
-      <NavLink to="/blog">Blog</NavLink>
-      <NavLink to="/recipes">Recipes</NavLink>
-    </Content>
+    {/* <Content> */}
+    {/*   <HomeLink to="/">Home</HomeLink> */}
+    {/*   {/1* <NavLink to="/blog">Blog</NavLink> *1/} */}
+    {/*   {/1* <NavLink to="/recipes">Recipes</NavLink> *1/} */}
+    {/* </Content> */}
   </SiteHeader>
 )
