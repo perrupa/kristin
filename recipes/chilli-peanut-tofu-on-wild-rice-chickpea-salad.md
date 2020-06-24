@@ -5,11 +5,12 @@ description: >-
   One of my absolute favourite dishes: it's fresh, flavourful and perfect for
   leftovers the next day!
 ---
+
 Before I went plant based I used to make this recipe with crispy chilli chicken. It was of my absolute favourite dishes as it was fresh, flavourful and packed and perfect for leftovers the next day.
 After I went plant based it kind of swept this recipe under the rug because I was trying new and exciting things.
-One day this fave crossed my mind again and got me thinking how I could turn it plant based. 
+One day this fave crossed my mind again and got me thinking how I could turn it plant based.
 
-That was when I thought a Peanut Chilli Tofu would be a perfect combination to go into this recipe for a plant based option. 
+That was when I thought a Peanut Chilli Tofu would be a perfect combination to go into this recipe for a plant based option.
 
 The trick with the Tofu is to first press it to drain any excess water. Once it has been pressed, coat it with some oil and then cornstarch and bake it at 400 degrees for about 30 min (15 on each side) to make it crispy on the outside and a bit more tender inside.
 

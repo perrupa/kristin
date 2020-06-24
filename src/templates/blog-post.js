@@ -15,22 +15,18 @@ const HeaderDate = styled.h3`
 `
 
 export default ({ data }) => {
-  const post = data.markdownRemark
-  const {
-    frontmatter: { title = "", description, date },
-    fields,
-  } = post
-
-  console.table(data)
+  const post = (data.markdownRemark = {})
+  const { frontmatter: { title = "", description, date } = {}, fields } = post
+  const readingTime = fields?.readingTime?.text || null
 
   return (
     <Layout title={title}>
       <SEO title={title} description={description || post.excerpt} />
       <Content id={title}>
         <h1>{title}</h1>
-        <HeaderDate>
-          {date} - {fields.readingTime.text}
-        </HeaderDate>
+
+        <HeaderDate>{[date, readingTime].join(" - ")}</HeaderDate>
+
         <MarkdownContent dangerouslySetInnerHTML={{ __html: post.html }} />
       </Content>
     </Layout>
